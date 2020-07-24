@@ -11,6 +11,7 @@ export default function Completion (props) {
                 <div key= {myPizza.id}>
                     <h4> Name: {myPizza.name} </h4>
                     <p> Size: {myPizza.size} </p>
+                    <p>Desired Toppings:</p>
                     {myPizza.pepperoni && <p>Pepperoni</p>}
                     {myPizza.sausage && <p>Sausage</p>}
                     {myPizza.mushroom && <p>Mushroom</p>}

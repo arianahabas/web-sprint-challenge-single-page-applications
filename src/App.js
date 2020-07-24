@@ -7,10 +7,20 @@ import Form from './components/Form'
 import * as yup from 'yup'
 import axios from 'axios'
 import './App.css'
+import styled from 'styled-components'
+
+const AppStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+`
+
+
+
 
 const initialForm = {
   name: '',
-  size: 's',
+  size: '',
   pepperoni: false,
   sausage: false,
   onion: false,
@@ -21,7 +31,7 @@ const formSchema = yup.object().shape({
   name: yup
   .string()
   .required('Name is required')
-  .min(4, 'Name must be four characters long'),
+  .min(2, 'Name must be 2 characters long'),
   size: yup.string(),
   pepperoni: yup.string(),
   sausage: yup.string(),
@@ -75,9 +85,10 @@ const App = () => {
   }
   console.log(errors)
   return (
-    <div>
+    <AppStyles>
     <>
-      <h1>Lambda Eats</h1>
+      <h1>Home Slice Pizza</h1>
+      <img src='https://unsplash.com/photos/MQUqbmszGGM' alt='pizza'/>
     </>
     <div>
       <Navigation />
@@ -101,7 +112,7 @@ const App = () => {
         </Route>
       </Switch>
     </div>
-    </div>
+    </AppStyles>
   );
 };
 export default App;
