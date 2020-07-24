@@ -20,8 +20,14 @@ const initialForm = {
 const formSchema = yup.object().shape({
   name: yup
   .string()
-  .min(4, 'Name must be four characters long')
   .required('Name is required')
+  .min(4, 'Name must be four characters long'),
+  size: yup.string(),
+  pepperoni: yup.string(),
+  sausage: yup.string(),
+  mushroom: yup.string(),
+  onion: yup.string(),
+  instructions: yup.string(),
 })
 
 const App = () => {
@@ -37,11 +43,6 @@ const App = () => {
     .then(valid => setDisabled(!valid))
   },[form])
   
-  const handleChange = (e) => {
-    e.target.type === 'checkbox' 
-    ? setForm({...form, [e.target.name]: e.target.checked})
-    : setForm({...form, [e.target.name]: e.target.value})
-  }
 
   const validateForm = (e) => {
     yup
@@ -50,6 +51,15 @@ const App = () => {
     .then(() => setErrors({...errors, [e.target.name]: ''}))
     .catch(err => setErrors({...errors, [e.target.name] : err.errors}))
   }
+
+  const handleChange = (e) => {
+    e.persist()
+    e.target.type === 'checkbox' 
+    ? setForm({...form, [e.target.name]: e.target.checked})
+    : setForm({...form, [e.target.name]: e.target.value})
+    validateForm(e);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('https://reqres.in/api/users', form)
@@ -63,7 +73,7 @@ const App = () => {
                                 
     })
   }
-  
+  console.log(errors)
   return (
     <div>
     <>
@@ -71,6 +81,7 @@ const App = () => {
     </>
     <div>
       <Navigation />
+      {errors.name.length > 0 && <p>{errors.name}</p>}
       <Switch>
         <Route path ='/pizza'>
           <Form 

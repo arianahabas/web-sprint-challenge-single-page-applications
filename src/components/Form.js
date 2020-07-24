@@ -11,7 +11,7 @@ export default function Form(props){
         <form onSubmit={handleSubmit}>
             <label>
                 Your Name:
-                <input name='name' value={name} onChange={handleChange}/>
+                <input id='name' name='name' value={name} onChange={handleChange}/>
             </label>
             <label>
                 Size:
@@ -24,25 +24,25 @@ export default function Form(props){
             </label>
             <label>
                 Pepperoni:
-                <input name='pepperoni' type='checkbox' checked={pepperoni} onChange={handleChange}/>
+                <input id='pepperoni' name='pepperoni' type='checkbox' checked={pepperoni} onChange={handleChange}/>
             </label>
             <label>
                 Sausage:
-                <input name='sausage' type='checkbox'checked={sausage} onChange={handleChange}/>
+                <input id='sausage' name='sausage' type='checkbox'checked={sausage} onChange={handleChange}/>
             </label>
             <label>
                 Mushroom:
-                <input name='mushroom' type='checkbox'checked={mushroom} onChange={handleChange}/>
+                <input id='mushroom' name='mushroom' type='checkbox'checked={mushroom} onChange={handleChange}/>
             </label>
             <label>
                 Onion:
-                <input name='onion' type='checkbox'checked={onion} onChange={handleChange}/>
+                <input id='onion' name='onion' type='checkbox'checked={onion} onChange={handleChange}/>
             </label>
             <label>
                 Special Instructions
-                <input name='instructions' type='textbox' value={instructions} onChange={handleChange}/>
+                <input id='instructions' name='instructions' type='textbox' value={instructions} onChange={handleChange}/>
             </label>
-            <button disabled={disabled} type='submit'>Place Order</button>
+            <button id='submitButton' disabled={disabled} type='submit'>Place Order</button>
         </form>
     )
 }
