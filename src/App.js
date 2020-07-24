@@ -15,9 +15,6 @@ const AppStyles = styled.div`
   align-items: center; 
 `
 
-
-
-
 const initialForm = {
   name: '',
   size: '',
@@ -88,7 +85,6 @@ const App = () => {
     <AppStyles>
     <>
       <h1>Home Slice Pizza</h1>
-      <img src='https://unsplash.com/photos/MQUqbmszGGM' alt='pizza'/>
     </>
     <div>
       <Navigation />
