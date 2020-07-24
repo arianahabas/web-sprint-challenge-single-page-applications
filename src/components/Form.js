@@ -5,10 +5,10 @@ import { useHistory } from 'react-router-dom'
 export default function Form(props){
     const history = useHistory()
 
-    const{name, size, pepperoni, sausage, mushroom, onion, instructions, handleChange } = props
+    const{name, size, pepperoni, sausage, mushroom, onion, instructions, handleChange, handleSubmit, disabled } = props
     
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
                 Your Name:
                 <input name='name' value={name} onChange={handleChange}/>
@@ -42,7 +42,7 @@ export default function Form(props){
                 Special Instructions
                 <input name='instructions' type='textbox' value={instructions} onChange={handleChange}/>
             </label>
-            <button onClick={()=> history.push('/complete')}>Place Order</button>
+            <button disabled={disabled} type='submit'>Place Order</button>
         </form>
     )
 }
