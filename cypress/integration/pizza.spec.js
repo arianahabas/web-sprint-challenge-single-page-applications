@@ -13,10 +13,13 @@ describe('Pizza Form', () => {
         cy.get('#onion').check()
 
      })
+     it('populates instructions', () =>{
+        cy.get('#instructions').type('Extra Crispy').should('have.value', 'Extra Crispy')
+    })
      it('can submit the form', () => {
-        cy.get('#instructions').type('Extra Crispy')
-        cy.get('#submitButton').click()
+           cy.get('#submitButton').click()
      })
+     
 
 
 })
